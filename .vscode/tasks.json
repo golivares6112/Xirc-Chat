@@ -22,7 +22,7 @@
 				"-l",
 				"wxmsw31ud_core",
 				"-l",
-				" wxbase31ud",
+				" wxbase31ud"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
@@ -34,7 +34,7 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"detail": "compilador: C:\\mingw64\\bin\\g++.exe" 
+			"detail": "compilador: C:\\mingw64\\bin\\g++.exe"
 		},
 		{
 			"type": "cppbuild",
@@ -57,7 +57,7 @@
 				"-l",
 				"wxmsw31u_core",
 				"-l",
-				" wxbase31u",
+				" wxbase31u"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
@@ -69,7 +69,7 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"detail": "compilador: C:\\mingw64\\bin\\g++.exe" 
+			"detail": "compilador: C:\\mingw64\\bin\\g++.exe"
 		}
 	]
 }
