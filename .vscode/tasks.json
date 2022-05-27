@@ -1,0 +1,75 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "Debug",
+			"command": "C:\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${workspaceFolder}\\Xirc-Chat\\src\\*.cpp",
+				"-o",
+				"${workspaceFolder}\\Xirc-Chat\\build\\debug\\${fileBasenameNoExtension}.exe",
+				"-I",
+				"${workspaceFolder}\\Xirc-Chat\\include",
+				"-I",
+				"C:\\Program Files (x86)\\wxWidgets\\include",
+				"-I",
+				"C:\\Program Files (x86)\\wxWidgets\\lib\\gcc_x64_dll\\mswud",
+				"-L",
+				"C:\\Program Files (x86)\\wxWidgets\\lib\\gcc_x64_dll",
+				"-l",
+				"wxmsw31ud_core",
+				"-l",
+				" wxbase31ud",
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compilador: C:\\mingw64\\bin\\g++.exe" 
+		},
+		{
+			"type": "cppbuild",
+			"label": "Release",
+			"command": "C:\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${workspaceFolder}\\Xirc-Chat\\src\\*.cpp",
+				"-o",
+				"${workspaceFolder}\\Xirc-Chat\\build\\release\\${fileBasenameNoExtension}.exe",
+				"-I",
+				"${workspaceFolder}\\Xirc-Chat\\include",
+				"-I",
+				"C:\\Program Files (x86)\\wxWidgets\\include",
+				"-I",
+				"C:\\Program Files (x86)\\wxWidgets\\lib\\gcc_x64_dll\\mswu",
+				"-L",
+				"C:\\Program Files (x86)\\wxWidgets\\lib\\gcc_x64_dll",
+				"-l",
+				"wxmsw31u_core",
+				"-l",
+				" wxbase31u",
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "compilador: C:\\mingw64\\bin\\g++.exe" 
+		}
+	]
+}
