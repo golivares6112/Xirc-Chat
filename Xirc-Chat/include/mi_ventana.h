@@ -14,23 +14,10 @@ public:
                 const wxPoint & pos,
                 const wxSize & tamano); //constructor de la clase mi ventana
 
-        void EnSalir(wxCommandEvent & evento);
-        void EnSaludar(wxCommandEvent & evento);
-        DECLARE_EVENT_TABLE()
-private:
-        wxPanel  *m_Panel;
-        wxButton * m_btnSaludar;
-        wxButton * m_btnSalir;
 };
-
 
 #endif
 
-enum { ID_Salir = 1, ID_Saludar };
-BEGIN_EVENT_TABLE(Mi_ventana, wxFrame)
-	EVT_BUTTON(ID_Saludar, Mi_ventana::EnSaludar)
-	EVT_BUTTON(ID_Salir, Mi_ventana::EnSalir)
-END_EVENT_TABLE()
 
 //declaracion o implementacion de las funciones y constructores  de la clase mi ventana
 Mi_ventana::Mi_ventana(const wxString & titulo,
@@ -38,33 +25,30 @@ Mi_ventana::Mi_ventana(const wxString & titulo,
 		const wxSize & tamano):
 		wxFrame((wxFrame *) NULL, -1, titulo, pos, tamano)
 {
-	wxSize tamanoPanel = GetClientSize();
-	m_Panel = new wxPanel(this, -1, wxPoint(0,0), tamanoPanel);
-	int al = tamanoPanel.GetHeight();
-	int an = tamanoPanel.GetWidth();
+	//create a panel to pass to our windows
+	wxPanel *panel_top = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(200, 100));
+	panel_top ->SetBackgroundColour(wxColor(100, 100, 200));
 
-	m_btnSaludar = new wxButton(m_Panel,
-				   ID_Saludar, _T("Saludos"),
-				   wxPoint(an/2 - 80, al/2 - 35),
-				   wxSize(70, 30));
+	wxPanel *panel_bottom = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(200, 100));
+	panel_bottom->SetBackgroundColour(wxColor(100, 200, 200));
 
-	m_btnSalir = new wxButton(m_Panel,
-				  ID_Salir, _T("Salir"),
-				  wxPoint(an/2 + 10, al/2 - 35),
-				  wxSize(70, 30));
+	wxPanel *panel_bottom_right = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(200, 100));
+	panel_bottom_right->SetBackgroundColour(wxColor(200, 200, 100));
+
+	wxBoxSizer * sizer = new wxBoxSizer(wxVERTICAL);
+	sizer->Add(panel_top, 1, wxEXPAND | wxLeft | wxTop |wxRight, 10);
+
+	wxBoxSizer *sizer_bottom = new wxBoxSizer(wxHORIZONTAL);
+
+	sizer_bottom->Add(panel_bottom, 1, wxEXPAND | wxRight, 10);
+	sizer_bottom->Add(panel_bottom_right, 0, wxEXPAND, 0);
+
+
+	sizer->Add(sizer_bottom, 1, wxEXPAND | wxALL, 10);
+
+
+	this->SetSizerAndFit(sizer);
+
 }
 
-//implementacion de las funciones, acciones de los botones
-void Mi_ventana::EnSalir(wxCommandEvent & WXUNUSED(evento))
-{
-	Close(TRUE);
-}
-
-void Mi_ventana::EnSaludar(wxCommandEvent & WXUNUSED(evento))
-{
-	wxMessageBox("Hola, Mundo con wxWidgets!!!",
-			"Hola, Mundo",
-			wxOK | wxICON_INFORMATION,
-			this);
-}
 

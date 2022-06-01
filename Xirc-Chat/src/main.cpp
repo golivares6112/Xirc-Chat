@@ -8,9 +8,9 @@ class Myapp : public wxApp
 
 bool Myapp::OnInit()
 {
-   Mi_ventana * frame = new Mi_ventana("Hola, Mundo!",
-					wxPoint(50,50),
-					wxSize(300,200));
+   Mi_ventana * frame = new Mi_ventana("Layouts Testing",
+					wxPoint(600,200),
+					wxSize(640,480));
 	frame->Show(TRUE);
 	SetTopWindow(frame);
 	return TRUE;
